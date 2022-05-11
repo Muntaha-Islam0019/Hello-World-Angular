@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'; // called string interpolation
+import { CoursesService } from './courses.service';
 
 @Component({
   selector: 'courses',
@@ -12,4 +13,10 @@ import { Component } from '@angular/core'; // called string interpolation
 export class CoursesComponent {
   title = 'List of courses';
   courses;
+
+  constructor(service: CoursesService) {
+    this.courses = service.getCourses();
+  }
+
+  // dependency injection means injecting or providing the dependencies of a class into it's constructor
 }
